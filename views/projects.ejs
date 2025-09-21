@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projects by Asadullah Hil Galib - AI, Machine Learning, and Web Development projects showcasing technical expertise.">
+  <meta name="keywords" content="Projects, AI Projects, Machine Learning, Web Development, Portfolio">
+  <meta name="author" content="Asadullah Hil Galib">
+
+  <title><%= title %></title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- AOS Animation -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+
+<body>
+  <%- include('partials/navbar') %>
+
+  <main class="main-content">
+
+    <section class="projects-hero">
+      <div class="container">
+        <div class="hero-content" data-aos="fade-up">
+          <h1 class="page-title">My Projects</h1>
+          <p class="page-subtitle">
+            A collection of AI, machine learning, and web development projects showcasing innovation and technical expertise
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects-content">
+      <div class="container">
+        <!-- Filter Controls -->
+        <div class="projects-filters" data-aos="fade-up" data-aos-delay="100">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="ai-ml">AI/ML</button>
+          <button class="filter-btn" data-filter="web-development">Web Dev</button>
+          <button class="filter-btn" data-filter="full-stack">Full-Stack</button>
+          <button class="filter-btn" data-filter="game-development">Games</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid" id="projects-grid">
+          <% projects.forEach((project, index) => { %>
+          <article class="project-card" data-category="<%= project.category.toLowerCase().replace(/[\s\/]/g, '-') %>" data-aos="fade-up" data-aos-delay="<%= 100 + (index * 100) %>">
+            <div class="project-image">
+              <img src="<%= project.image %>" alt="<%= project.title %>" loading="lazy">
+              <div class="project-overlay">
+                <div class="project-actions">
+                  <a href="/projects/<%= project.id %>" class="project-btn" aria-label="View project details">
+                    <i class="fas fa-eye"></i>
+                  </a>
+                  <a href="<%= project.github %>" class="project-btn" aria-label="View on GitHub" target="_blank">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <% if (project.demo !== '#') { %>
+                  <a href="<%= project.demo %>" class="project-btn" aria-label="View live demo" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-header">
+                <div class="project-category"><%= project.category %></div>
+                <div class="project-status status-<%= project.status.toLowerCase() %>">
+                  <%= project.status %>
+                </div>
+              </div>
+
+              <h3 class="project-title">
+                <a href="/projects/<%= project.id %>"><%= project.title %></a>
+              </h3>
+
+              <p class="project-description">
+                <%= project.description %>
+              </p>
+
+              <div class="project-meta">
+                <div class="project-period">
+                  <i class="fas fa-calendar-alt"></i>
+                  <span><%= project.period %></span>
+                </div>
+              </div>
+
+              <div class="project-technologies">
+                <% project.technologies.forEach(tech => { %>
+                <span class="tech-tag"><%= tech %></span>
+                <% }) %>
+              </div>
+
+              <div class="project-footer">
+                <a href="/projects/<%= project.id %>" class="project-link">
+                  <span>Learn More</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+          <% }) %>
+        </div>
+
+        <!-- No projects found message -->
+        <div class="no-projects" id="no-projects" style="display: none;">
+          <div class="no-projects-content">
+            <i class="fas fa-search"></i>
+            <h3>No projects found</h3>
+            <p>Try selecting a different category or view all projects.</p>
+            <button class="btn btn-primary" onclick="showAllProjects()">
+              Show All Projects
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="projects-cta">
+      <div class="container">
+        <div class="cta-content" data-aos="fade-up">
+          <h2 class="cta-title">Interested in Collaboration?</h2>
+          <p class="cta-description">
+            I'm always excited to work on new projects and explore innovative solutions. Let's discuss how we can bring your ideas to life.
+          </p>
+          <a href="/contact" class="btn btn-primary btn-large">
+            <span>Start a Conversation</span>
+            <i class="fas fa-comments"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <%- include('partials/footer') %>
+
+  <!-- Scripts -->
+  <script src="/js/main.js"></script>
+  <script src="/js/animations.js"></script>
+  <script src="/js/projects.js"></script>
+
+  <!-- AOS Animation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+  </script>
+</body>
+
+</html>

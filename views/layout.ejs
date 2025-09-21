@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Asadullah Hil Galib - AI & Machine Learning Developer portfolio. Specialized in Python, TensorFlow, deep learning, and intelligent system development.">
+    <meta name="keywords" content="AI, Machine Learning, Python, TensorFlow, Deep Learning, Web Development, Portfolio">
+    <meta name="author" content="Asadullah Hil Galib">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://asadullahgalib.dev/">
+    <meta property="og:title" content="<%= title %>">
+    <meta property="og:description" content="AI & Machine Learning Developer specializing in intelligent systems and modern web applications">
+    <meta property="og:image" content="/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://asadullahgalib.dev/">
+    <meta property="twitter:title" content="<%= title %>">
+    <meta property="twitter:description" content="AI & Machine Learning Developer portfolio">
+    <meta property="twitter:image" content="/images/og-image.jpg">
+
+    <title><%= title %></title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/css/main.css" as="style">
+    <link rel="preload" href="/js/main.js" as="script">
+</head>
+<body>
+    <!-- Navigation -->
+    <%- include('partials/navbar') %>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <%- body %>
+    </main>
+    
+    <!-- Footer -->
+    <%- include('partials/footer') %>
+    
+    <!-- Scripts -->
+    <script src="/js/main.js"></script>
+    <script src="/js/animations.js"></script>
+    
+    <!-- Page-specific scripts -->
+    <% if (currentPage === 'contact') { %>
+        <script src="/js/contact.js"></script>
+    <% } %>
+    <% if (currentPage === 'skills') { %>
+        <script src="/js/skills.js"></script>
+    <% } %>
+    <% if (currentPage === 'projects') { %>
+        <script src="/js/projects.js"></script>
+    <% } %>
+</body>
+</html>

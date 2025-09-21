@@ -1,0 +1,46 @@
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <div class="nav-brand">
+            <a href="/" class="brand-link">
+                <span class="brand-text">AHG</span>
+                <div class="brand-dot"></div>
+            </a>
+        </div>
+        
+        <div class="nav-menu" id="nav-menu">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="/" class="nav-link <%= currentPage === 'home' ? 'active' : '' %>">
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link <%= currentPage === 'about' ? 'active' : '' %>">
+                        <span>About</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/projects" class="nav-link <%= currentPage === 'projects' ? 'active' : '' %>">
+                        <span>Projects</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/skills" class="nav-link <%= currentPage === 'skills' ? 'active' : '' %>">
+                        <span>Skills</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/contact" class="nav-link <%= currentPage === 'contact' ? 'active' : '' %>">
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="nav-toggle" id="nav-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+</nav>

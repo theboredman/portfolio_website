@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+
+<body>
+  <%- include('partials/navbar') %>
+
+  <main class="main-content">
+
+    <section class="error-page">
+      <div class="container">
+        <div class="error-content" data-aos="fade-up">
+          <div class="error-visual">
+            <div class="error-number">404</div>
+            <div class="error-icon">
+              <i class="fas fa-search"></i>
+            </div>
+          </div>
+
+          <div class="error-text">
+            <h1 class="error-title">Page Not Found</h1>
+            <p class="error-description">
+              Sorry, the page you're looking for doesn't exist or has been moved.
+              Let's get you back on track.
+            </p>
+
+            <div class="error-actions">
+              <a href="/" class="btn btn-primary">
+                <i class="fas fa-home"></i>
+                <span>Go Home</span>
+              </a>
+              <a href="/projects" class="btn btn-outline">
+                <i class="fas fa-folder"></i>
+                <span>View Projects</span>
+              </a>
+            </div>
+
+            <div class="helpful-links">
+              <h3>Popular Pages</h3>
+              <ul>
+                <li><a href="/about">About Me</a></li>
+                <li><a href="/skills">Skills & Expertise</a></li>
+                <li><a href="/contact">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <%- include('partials/footer') %>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/animations.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+  </script>
+</body>
+
+</html>
